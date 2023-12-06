@@ -1,0 +1,32 @@
+nav {
+  height: 120px;
+  box-sizing: border-box;
+  background-color: #4056A1;
+  color: #FFFFFF;
+  padding: 1.5em;
+  padding-top: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tweeter {
+  font-family: 'Bungee', sans-serif;
+}
+
+.nav-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.new-tweet {
+  margin: 0px;
+}
+
+.write {
+  font-weight: 800;
+}
+
+nav i {
+  color: red;
+}
