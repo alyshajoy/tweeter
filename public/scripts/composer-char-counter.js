@@ -7,7 +7,16 @@ $(document).ready(function() {
     let $counter = $(this).closest("form").find(".counter"); // goes up DOM to form, then down to .counter (and saves .counter to variable)
     const text = $(this).val(); // this variable contains all text typed into textbox
     const numOfChars = text.length; // find num of characters currently in text box
-    $counter.text(140-numOfChars); // change counter to equal 140-numOfChars
+    const remainingChars = 140 - numOfChars;
+
+    $counter.text(remainingChars); // change counter to equal 140-numOfChars
+
+    if (remainingChars < 0) { // adds .negative that changes counter to red in CSS file
+      $counter.addClass("negative");
+    } else { // removes .negative class if counter is positive
+      $counter.removeClass("negative");
+    }
+
   });
 
 });

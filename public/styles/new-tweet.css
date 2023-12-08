@@ -40,3 +40,7 @@ textarea {
   color: white;
   background-color: #4056A1;
 }
+
+.negative {
+  color: red;
+}
