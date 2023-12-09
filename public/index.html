@@ -27,6 +27,9 @@
     <!-- New-Tweet CSS -->
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
 
+    <!-- Tweet Container CSS -->
+    <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
+
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -70,16 +73,20 @@
       </section>
       <article class="tweet-container">
         <header>
-          <img src="/images/anti-age.png">
-          <p class="firstName">Alysha</p>
-          <p class="userName">@AlJoy</p>
+          <div class="left-header">
+            <img class="user-face" src="/images/anti-age.png">
+            <p class="first-name">Alysha</p>
+          </div>
+          <p class="username">@AlJoy</p>
         </header>
-        <p>Music gives us a glimpse into the very heart of reality; it is not a dream, but a window.</p>
+        <p class="posted-tweet">Music gives us a glimpse into the very heart of reality; it is not a dream, but a window.</p>
         <footer>
           <p>10 days ago</p>
-          <i class="fa-solid fa-flag"></i>
-          <i class="fa-solid fa-repeat"></i>
-          <i class="fa-solid fa-heart"></i>
+          <div class="posted-tweet-icons">
+            <i class="fa-solid fa-flag"></i>
+            <i class="fa-solid fa-repeat"></i>
+            <i class="fa-solid fa-heart"></i>
+          </div>
         </footer>
       </article>
     </main>
