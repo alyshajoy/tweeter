@@ -1,3 +1,7 @@
+.tweet-collection {
+  width: 100%;
+}
+
 .tweet-container {
   border-style: solid;
   padding: 5px 10px;
