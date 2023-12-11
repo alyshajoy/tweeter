@@ -50,8 +50,6 @@ $(document).ready(function() {
 
   };
 
-  renderTweets(data);
-
   const $tweetForm = $('#tweet-form');
 
   // event listener for tweet-form submit
@@ -63,24 +61,13 @@ $(document).ready(function() {
     });
   });
 
+  // loads all tweets in database to page
   const loadTweets = function () {
-
     $.get("/tweets", function(data) {
-      console.log(data);
+      renderTweets(data);
     });
-
   };
 
   loadTweets();
 
 });
-
-// event listener for tweet-form submit
-// const $tweetForm = $('#tweet-form');
-// $tweetForm.on('submit', function (event) {
-//   event.preventDefault();
-//   const $textarea = $(this).find('#tweet-text');
-//   const serializedText = $textarea.serialize();
-//   $.post("/tweets", serializedText, function () {
-//   });
-// });
