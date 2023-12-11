@@ -41,6 +41,7 @@ $(document).ready(function() {
 
   };
 
+  // renders tweets from passed in object
   const renderTweets = function (tweets) {
 
     for (let tweet of tweets) {
@@ -64,7 +65,16 @@ $(document).ready(function() {
   // loads all tweets in database to page
   const loadTweets = function () {
     $.get("/tweets", function(data) {
+
+      // convert timestamp to timeago for each tweet
+      for (let tweet of data) {
+        const time = tweet.created_at;
+        const formattedTime = timeago.format(time);
+        tweet.created_at = formattedTime;
+      }
+
       renderTweets(data);
+
     });
   };
 
