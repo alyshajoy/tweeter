@@ -58,6 +58,18 @@ $(document).ready(function() {
     event.preventDefault();
     const $textarea = $(this).find('#tweet-text');
     const serializedText = $textarea.serialize();
+    const text = $textarea.val();
+
+    if (text === "" || text === null) {
+      alert("You need to include something to actually tweet!");
+      return;
+    }
+
+    if (text.length > 140) {
+      alert("You need to make this a bit shorter :)");
+      return;
+    }
+
     $.post("/tweets", serializedText, function () {
     });
   });
