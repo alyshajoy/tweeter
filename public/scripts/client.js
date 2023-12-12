@@ -44,9 +44,13 @@ $(document).ready(function() {
   // renders tweets from passed in object
   const renderTweets = function (tweets) {
 
+    const $tweetCollection = $('.tweet-collection');
+    $tweetCollection.empty();
+
     for (let tweet of tweets) {
       let newTweetHTML = createTweetElement(tweet);
       $('.tweet-collection').append(newTweetHTML);
+      console.log(`${tweet.user.name} rendered`);
     }
 
   };
@@ -70,22 +74,29 @@ $(document).ready(function() {
       return;
     }
 
-    $.post("/tweets", serializedText, function () {
-    });
+    $.post("/tweets", serializedText)
+      .done(function(response, status) {
+        if (status === 'success') {
+          console.log("post .done")
+          loadTweets();
+        }
+      });
   });
 
   // loads all tweets in database to page
   const loadTweets = function () {
     $.get("/tweets", function(data) {
 
+      const tweetArray = [];
       // convert timestamp to timeago for each tweet
       for (let tweet of data) {
         const time = tweet.created_at;
         const formattedTime = timeago.format(time);
         tweet.created_at = formattedTime;
+        tweetArray.unshift(tweet);
       }
 
-      renderTweets(data);
+      renderTweets(tweetArray);
 
     });
   };
