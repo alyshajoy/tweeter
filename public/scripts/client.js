@@ -89,6 +89,8 @@ $(document).ready(function() {
           loadTweets();
         }
       });
+
+    $textarea.val("");
   });
 
   $('#tweet-text').on('input', function () {
@@ -100,7 +102,7 @@ $(document).ready(function() {
       $errorMessageEmpty.removeClass('error');
       $errorMessageLong.removeClass('error');
     }
-    
+
   });
 
   // loads all tweets in database to page
