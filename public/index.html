@@ -66,6 +66,8 @@
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <form action="/tweets/" method="POST" id="tweet-form">
+          <p class="error-message-empty">You need to include something to actually tweet about!</p>
+          <p class="error-message-long">You need to make this a bit shorter!</p>
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
           <div class="under-tweet-text">

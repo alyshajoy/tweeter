@@ -69,3 +69,19 @@
 .posted-tweet-icons i:hover {
   color: #d18d3f;
 }
+
+.error-message-empty {
+  display: none;
+}
+
+.error-message-long {
+  display: none;
+}
+
+.error {
+  display: block;
+  color: red;
+  border-style: solid;
+  border-color: red;
+  padding: 8px;
+}

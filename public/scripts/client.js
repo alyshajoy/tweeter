@@ -15,6 +15,13 @@ $(document).ready(function() {
     const content = obj.content.text;
     const timeCreated = obj.created_at;
 
+    // escape function that neutralizes any HTML in the text
+    const escape = function (str) {
+      let div = document.createElement("div");
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    };
+
     // all html for new tweet container, using data pulled from object
     const newTweetContainer = $(
       `<article class="tweet-container">
@@ -23,9 +30,9 @@ $(document).ready(function() {
               <img src=${avatar} class ="avatar" alt="face icon">
               <p class="user-name">${name}</p>
             </div>
-            <p class="handle">${handle}</p>
+            <p class="handle">${escape(handle)}</p>
           </header>
-          <p class="posted-tweet">${content}</p>
+          <p class="posted-tweet">${escape(content)}</p>
           <footer>
             <p class="time-posted">${timeCreated}</p>
             <div class="posted-tweet-icons">
@@ -63,24 +70,37 @@ $(document).ready(function() {
     const $textarea = $(this).find('#tweet-text');
     const serializedText = $textarea.serialize();
     const text = $textarea.val();
+    const $errorMessageEmpty = $('.error-message-empty');
+    const $errorMessageLong = $('.error-message-long');
 
-    if (text === "" || text === null) {
-      alert("You need to include something to actually tweet!");
+    if (text === "" || text === null) { // error message if nothing is typed when they try to submit
+      $errorMessageEmpty.addClass('error');
       return;
     }
 
-    if (text.length > 140) {
-      alert("You need to make this a bit shorter :)");
+    if (text.length > 140) { // error message if tweet is too long
+      $errorMessageLong.addClass('error');
       return;
     }
 
     $.post("/tweets", serializedText)
       .done(function(response, status) {
         if (status === 'success') {
-          console.log("post .done")
           loadTweets();
         }
       });
+  });
+
+  $('#tweet-text').on('input', function () {
+    const text = $(this).val();
+    const $errorMessageEmpty = $('.error-message-empty');
+    const $errorMessageLong = $('.error-message-long');
+  
+    if (text !== "" && text.length <= 140) {
+      $errorMessageEmpty.removeClass('error');
+      $errorMessageLong.removeClass('error');
+    }
+    
   });
 
   // loads all tweets in database to page
