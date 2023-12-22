@@ -7,7 +7,7 @@
 $(document).ready(function() {
 
   // function that creates a new tweet container filled with the data from the object passed in
-  const createTweetElement = function (obj) {
+  const createTweetElement = function(obj) {
 
     const name = obj.user.name;
     const avatar = obj.user.avatars;
@@ -16,7 +16,7 @@ $(document).ready(function() {
     const timeCreated = obj.created_at;
 
     // escape function that neutralizes any HTML in the text
-    const escape = function (str) {
+    const escape = function(str) {
       let div = document.createElement("div");
       div.appendChild(document.createTextNode(str));
       return div.innerHTML;
@@ -25,31 +25,31 @@ $(document).ready(function() {
     // all html for new tweet container, using data pulled from object
     const newTweetContainer = $(
       `<article class="tweet-container">
-          <header>
-            <div class="left-header">
-              <img src=${avatar} class ="avatar" alt="face icon">
-              <p class="user-name">${name}</p>
-            </div>
-            <p class="handle">${escape(handle)}</p>
-          </header>
-          <p class="posted-tweet">${escape(content)}</p>
-          <footer>
-            <p class="time-posted">${timeCreated}</p>
-            <div class="posted-tweet-icons">
-              <i class="fa-solid fa-flag" alt="flag"></i>
-              <i class="fa-solid fa-repeat" alt="retweet"></i>
-              <i class="fa-solid fa-heart" alt="heart"></i>
-            </div>
-          </footer>
-        </article>`
-      );
+        <header>
+          <div class="left-header">
+            <img src=${avatar} class ="avatar" alt="face icon">
+            <p class="user-name">${name}</p>
+          </div>
+          <p class="handle">${escape(handle)}</p>
+        </header>
+        <p class="posted-tweet">${escape(content)}</p>
+        <footer>
+          <p class="time-posted">${timeCreated}</p>
+          <div class="posted-tweet-icons">
+            <i class="fa-solid fa-flag" alt="flag"></i>
+            <i class="fa-solid fa-repeat" alt="retweet"></i>
+            <i class="fa-solid fa-heart" alt="heart"></i>
+          </div>
+        </footer>
+      </article>`
+    );
     
     return newTweetContainer;
 
   };
 
   // renders tweets from passed in object
-  const renderTweets = function (tweets) {
+  const renderTweets = function(tweets) {
 
     const $tweetCollection = $('.tweet-collection');
     $tweetCollection.empty();
@@ -65,7 +65,7 @@ $(document).ready(function() {
   const $tweetForm = $('#tweet-form');
 
   // event listener for tweet-form submit
-  $tweetForm.on('submit', function (event) {
+  $tweetForm.on('submit', function(event) {
     event.preventDefault();
     const $textarea = $(this).find('#tweet-text');
     const serializedText = $textarea.serialize();
@@ -93,7 +93,8 @@ $(document).ready(function() {
     $textarea.val("");
   });
 
-  $('#tweet-text').on('input', function () {
+  // remove error messages once error is resolved by user
+  $('#tweet-text').on('input', function() {
     const text = $(this).val();
     const $errorMessageEmpty = $('.error-message-empty');
     const $errorMessageLong = $('.error-message-long');
@@ -106,7 +107,7 @@ $(document).ready(function() {
   });
 
   // loads all tweets in database to page
-  const loadTweets = function () {
+  const loadTweets = function() {
     $.get("/tweets", function(data) {
 
       const tweetArray = [];
