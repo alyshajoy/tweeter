@@ -19,4 +19,18 @@ $(document).ready(function() {
 
   });
 
+  // reset counter when submitted
+  $('#tweet-form').on('submit', function() {
+    const text = $tweetText.val();
+    let $counter = $(this).find(".counter");
+
+    if (text.length > 0 && text.length <= 140) {
+      $counter.text(140);
+    }
+
+    // clear textbox on submit
+    $tweetText.val("");
+    
+  });
+
 });

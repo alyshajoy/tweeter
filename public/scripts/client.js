@@ -72,7 +72,7 @@ $(document).ready(function() {
     const $errorMessageEmpty = $('.error-message-empty');
     const $errorMessageLong = $('.error-message-long');
 
-    if (text === "" || text === null) { // error message if nothing is typed when they try to submit
+    if (!text) { // error message if nothing is typed when they try to submit
       $errorMessageEmpty.addClass('error');
       return;
     }
@@ -90,7 +90,6 @@ $(document).ready(function() {
         }
       });
 
-    $textarea.val("");
   });
 
   // remove error messages once error is resolved by user
