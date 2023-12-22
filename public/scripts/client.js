@@ -57,7 +57,6 @@ $(document).ready(function() {
     for (let tweet of tweets) {
       let newTweetHTML = createTweetElement(tweet);
       $('.tweet-collection').append(newTweetHTML);
-      console.log(`${tweet.user.name} rendered`);
     }
 
   };
@@ -83,6 +82,7 @@ $(document).ready(function() {
       return;
     }
 
+    // use AJAX to post tweet to database, and reload database to page
     $.post("/tweets", serializedText)
       .done(function(response, status) {
         if (status === 'success') {
