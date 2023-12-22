@@ -4,8 +4,8 @@ Tweeter is a simple, single-page Twitter clone that was built to practice using 
 
 ## Final Product
 
-!["Create your own tweets and read what's already been tweeted!"](https://github.com/alyshajoy/tweeter/blob/master/Screenshot%202023-12-21%20at%209.51.42%20PM.png?raw=true)
-!["Designed responsively to be optimized for devices of all sizes."](https://github.com/alyshajoy/tweeter/blob/master/Screenshot%202023-12-21%20at%209.52.35%20PM.png?raw=true)
+!["Create your own tweets and read what's already been tweeted!"](https://github.com/alyshajoy/tweeter/blob/master/docs/Screenshot%202023-12-21%20at%209.51.42%20PM.png?raw=true)
+!["Designed responsively to be optimized for devices of all sizes."](https://github.com/alyshajoy/tweeter/blob/master/docs/Screenshot%202023-12-21%20at%209.52.35%20PM.png?raw=true)
 
 ## Getting Started
 
