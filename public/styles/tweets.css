@@ -85,3 +85,16 @@
   border-color: red;
   padding: 8px;
 }
+
+@media only screen and (min-width: 1024px) {
+
+  .container {
+    width: 60%;
+    padding-top: 200px; 
+  }
+
+  .new-tweet > h2 {
+    display: none;
+  }
+
+}

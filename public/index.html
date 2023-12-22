@@ -51,34 +51,31 @@
       </div>
     </nav>
 
-    <header>
-      <div>
-          <img src="/images/profile-hex.png" alt="Profile picture"> 
-      </div>
-      <br>
-      <div>
-          <h2 class="header-name">Alysha Huot</h2>
-      </div>
-    </header>
+    <div class="desktop-flex">
+      <header class="profile-display">     
+        <img src="/images/profile-hex.png" alt="Profile picture">         
+        <h2 class="header-name">Alysha Huot</h2>       
+      </header>
 
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-      <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-        <form action="/tweets/" method="POST" id="tweet-form">
-          <p class="error-message-empty">You need to include something to actually tweet about!</p>
-          <p class="error-message-long">You need to make this a bit shorter!</p>
-          <label for="tweet-text">What are you humming about?</label>
-          <textarea name="text" id="tweet-text"></textarea>
-          <div class="under-tweet-text">
-            <button type="submit" id="tweet-button">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
-          </div>
-        </form>
-      </section>
-      <div class="tweet-collection">
-      </div>
-    </main>
+      <!-- Page-specific (main) content here -->
+      <main class="container">
+        <section class="new-tweet">
+          <h2>Compose Tweet</h2>
+          <form action="/tweets/" method="POST" id="tweet-form">
+            <p class="error-message-empty">You need to include something to actually tweet about!</p>
+            <p class="error-message-long">You need to make this a bit shorter!</p>
+            <label for="tweet-text">What are you humming about?</label>
+            <textarea name="text" id="tweet-text"></textarea>
+            <div class="under-tweet-text">
+              <button type="submit" id="tweet-button">Tweet</button>
+              <output name="counter" class="counter" for="tweet-text">140</output>
+            </div>
+          </form>
+        </section>
+        <div class="tweet-collection">
+        </div>
+      </main>
+    </div>
 
   </body>
 </html>
