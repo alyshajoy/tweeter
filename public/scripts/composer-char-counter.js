@@ -26,10 +26,10 @@ $(document).ready(function() {
 
     if (text.length > 0 && text.length <= 140) {
       $counter.text(140);
-    }
 
-    // clear textbox on submit
-    $tweetText.val("");
+      // clear textbox on submit
+      $tweetText.val("");
+    }
     
   });
 
